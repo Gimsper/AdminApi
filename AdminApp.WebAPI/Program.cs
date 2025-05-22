@@ -75,7 +75,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHealthChecks("/");
+app.UseHealthChecks("/health");
 
 app.UseCors("AllowAllOrigins");
 
