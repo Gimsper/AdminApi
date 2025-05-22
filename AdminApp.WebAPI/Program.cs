@@ -2,6 +2,7 @@ using AdminApp.Core.Context;
 using AdminApp.Infrastructure.Repositories;
 using AdminApp.Services.Services;
 using AdminApp.Utils;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
 
@@ -66,6 +67,7 @@ builder.Services.AddControllers().AddJsonOptions(x => x.JsonSerializerOptions.Re
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(typeof(MappingProfile));
+builder.Services.AddHealthChecks();
 
 var app = builder.Build();
 
@@ -75,6 +77,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.MapHealthChecks("/health");
 app.UseHealthChecks("/health");
 
 app.UseCors("AllowAllOrigins");
