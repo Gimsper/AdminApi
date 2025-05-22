@@ -1,6 +1,6 @@
 [build]
 builder = "dockerfile"
-dockerfilepath = "./AdminApp.WebAPI/Dockerfile"
+dockerfilepath = "/AdminApp.WebAPI/Dockerfile"
 
 [deploy]
 startCommand = "dotnet AdminApp.WebAPI.dll"
